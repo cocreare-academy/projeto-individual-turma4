@@ -1,14 +1,107 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Teste
-        </title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <header>
-            <img src="./assets/img/home-logo.png" />
-        </header>
-    </body>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Controle financeiro para transações de compras e vendas de mercadorias. Teste de front-end Via Varejo.">
+
+    <link rel="shortcut icon" href="/assets/img/home-logo.png">
+    <title>Controle Financeiro</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="navbar-brand">
+                <!-- <a href="#" class="brand"></a> -->
+                <img src="assets/img/home-logo.png" style="width:33px"/>
+                <h1 class="system-title">
+                    Controle financeiro
+                </h1>
+            </div>
+            <div class="menu-hover-control">
+              <button type="button" class="open-menu">Menu</button>
+              <nav class="navbar-menu">
+                  <button type="button" class="close-menu">Fechar</button>
+                  <ul>
+                      <li><a href="#">Cadastro de transações</a></li>
+                      <li><a href="#">Limpar dados</a></li>
+                      <li class="active"><a href="#">Salvar no servidor</a></li>
+                  </ul>
+              </nav>
+            </div>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <section class="section-new-transaction">                
+                <form>
+                    <h1>Nova transação</h1>
+                    <div class="form-group">
+                        <div class="form-input">
+                            <label for="tipo-transacao">Tipo de transação</label>
+                            <select >
+                                <option value="1">Compra</option>
+                                <option value="2">Venda</option>
+                            </select>
+                        </div>                        
+                        <div class="form-input">
+                            <label for="nome-mercadoria">Nome da mercadoria</label>
+                            <input type="text" placeholder="Input">
+                        </div>    
+                        <div class="form-input">
+                            <label for="valor-mercadoria">Valor (R$)</label>
+                            <input type="number" min="0.01" step="0.01" placeholder="R$ 0,00">
+                        </div>                    
+                        <button type="submit">Adicionar transação</button>
+                    </div>
+                </form>
+            </section>
+            <section class="section-transaction-statement">
+                <h1>Extrato de transações</h1>
+                <table class="table-transaction-statement" table-transaction>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Mercadoria</th>
+                            <th class="text-right">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr class="text-center">
+                            <td colspan="3" class="text-center"> Por favor, adicione uma nova transação </td>
+                        </tr> -->
+                            <tr>
+                                <td class="text-right">-</td>
+                                <td class="">Produto 1 </td>
+                                <td class="text-right">R$ 19,99</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">+</td>
+                                <td class="">Produto 2 </td>
+                                <td class="text-right">R$ 2,29</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">-</td>
+                                <td class="">Produto 3 </td>
+                                <td class="text-right">R$ 3,38</td>
+                            </tr>
+                        </tbody> 
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th>Total</th>
+                                <th class="text-right">
+                                    <p>R$ -21,08<p> 
+                                    <em class="uppercase" style="font-weight: 100;font-size: 12px"> [Prejuízo] </em>
+                                </th>
+                            </tr>
+                        </tfoot>
+                </table>
+            </section>
+        </div>
+    </main>
+</body>
 </html>
