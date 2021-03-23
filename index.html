@@ -15,8 +15,8 @@
     <header class="main-header">
         <div class="container">
             <div class="navbar-brand">
-                <!-- <a href="#" class="brand"></a> -->
-                <img src="assets/img/home-logo.png" style="width:33px"/>
+                <a href="#" class="brand"></a>
+                <!-- <img src="assets/img/home-logo.png" style="width:33px"/> -->
                 <h1 class="system-title">
                     Controle financeiro
                 </h1>
@@ -42,18 +42,18 @@
                     <div class="form-group">
                         <div class="form-input">
                             <label for="tipo-transacao">Tipo de transação</label>
-                            <select >
+                            <select>
                                 <option value="1">Compra</option>
                                 <option value="2">Venda</option>
                             </select>
                         </div>                        
                         <div class="form-input">
                             <label for="nome-mercadoria">Nome da mercadoria</label>
-                            <input type="text" placeholder="Input">
+                            <input type="text" placeholder="Input" required>
                         </div>    
                         <div class="form-input">
                             <label for="valor-mercadoria">Valor (R$)</label>
-                            <input type="number" min="0.01" step="0.01" placeholder="R$ 0,00">
+                            <input type="number" min="0.01" step="0.01" placeholder="0,00" required>
                         </div>                    
                         <button type="submit">Adicionar transação</button>
                     </div>

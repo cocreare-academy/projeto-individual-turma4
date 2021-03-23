@@ -81,8 +81,8 @@ img{
 .brand{
     background-image: url(/assets/img/home-logo.png);
     background-size: cover;
-    width: 33px;
-    height: 33px;
+    width: 40px;
+    height: 40px;
     background-position: 50%;
 }
 
@@ -327,8 +327,8 @@ img{
 
     .brand{
         background-image: url(/assets/img/home-logo.png);
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
 
     .section-new-transaction h1{
