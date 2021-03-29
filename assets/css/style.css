@@ -239,8 +239,7 @@ img{
         margin: 0;
 
         height: 100%;
-        width: 90%;
-        max-width: 250px;
+       
 
         position: fixed;
         z-index: 1;
@@ -249,6 +248,8 @@ img{
         right: -90%;
 
         text-align: right;
+        transition: all 0.5s 0s ease;
+
     }
 
     .menu-hover-control:hover .navbar-menu {
@@ -386,3 +387,10 @@ img{
     left: 0;
     text-indent: 0;
 }
+
+
+/* 
+form input:invalid,select:invalid {
+    background-color: rgb(189, 79, 79);
+    border: 1px solid  rgb(134, 17, 17);
+} */
