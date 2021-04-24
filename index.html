@@ -22,15 +22,15 @@
                 </h1>
             </div>
             <div class="menu-hover-control">
-              <button type="button" class="open-menu">Menu</button>
+              <button type="button" class="open-menu" onclick="toggleMenu()">Menu</button>
               <!-- <img src="assets/img/hamburger_icon.svg" class="close-menu" style="width: 40px;"> -->
 
               <nav class="navbar-menu">
-                  <button type="button" class="close-menu">Fechar</button>
+                  <button type="button" class="close-menu" onclick="toggleMenu()">Fechar</button>
                   <ul>
                       <li><a href="#">Cadastro de transações</a></li>
                       <li><a href="#">Limpar dados</a></li>
-                      <li class="active"><a href="#">Salvar no servidor</a></li>
+                      <li class="active"><a href="javascript:void(0);" onclick="salvaDados()">Salvar no servidor</a></li>
                   </ul>
               </nav>
             </div>
@@ -39,24 +39,27 @@
     <main class="main-content">
         <div class="container">
             <section class="section-new-transaction">                
-                <form>
+                <form id="meuForm">
                     <h1>Nova transação</h1>
                     <div class="form-group">
                         <div class="form-input">
                             <label for="tipo-transacao">Tipo de transação</label>
-                            <select required>
+                            <select onchange="clearErrors()" name="tipoTransacao">
                                 <option value="">Selecione</option>
                                 <option value="1">Compra</option>
                                 <option value="2">Venda</option>
                             </select>
+                            <em class="hidden">Esse campo é obrigatorio</em>
                         </div>                        
                         <div class="form-input">
                             <label for="nome-mercadoria">Nome da mercadoria</label>
-                            <input type="text" placeholder="Input" required>
+                            <input onkeydown="clearErrors()" type="text" name="nomeMercadoria" placeholder="Input">
+                            <em class="hidden">Esse campo é obrigatorio</em>
                         </div>    
                         <div class="form-input">
                             <label for="valor-mercadoria">Valor (R$)</label>
-                            <input type="number" min="0.01" step="0.01" placeholder="0,00" required>
+                            <input onfocus="clearErrors()" type="text" onkeypress="applyMask(event)" name="valorMercadoria" placeholder="0,00">
+                            <em class="hidden">Esse campo é obrigatorio</em>
                         </div>                    
                         <button type="submit">Adicionar transação</button>
                     </div>
@@ -73,57 +76,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr class="text-center">
-                            <td colspan="3" class="text-center"> Por favor, adicione uma nova transação </td>
-                        </tr> -->
-                            <tr>
-                                <td class="text-right">-</td>
-                                <td class="">Produto 1 </td>
-                                <td class="text-right">R$ 19,99</td>
-                            </tr>
-                            <tr>
-                                <td class="text-right">+</td>
-                                <td class="">Produto 2 </td>
-                                <td class="text-right">R$ 2,29</td>
-                            </tr>
-                            <tr>
-                                <td class="text-right">-</td>
-                                <td class="">Produto 3 </td>
-                                <td class="text-right">R$ 3,38</td>
-                            </tr>
-                            <tr>
-                                <td class="text-right">-</td>
-                                <td class="">Produto 3 </td>
-                                <td class="text-right">R$ 3,38</td>
-                            </tr><tr>
-                                <td class="text-right">-</td>
-                                <td class="">Produto 3 </td>
-                                <td class="text-right">R$ 3,38</td>
-                            </tr><tr>
-                                <td class="text-right">-</td>
-                                <td class="">Produto 3 </td>
-                                <td class="text-right">R$ 3,38</td>
-                            </tr><tr>
-                                <td class="text-right">-</td>
-                                <td class="">Produto 3 </td>
-                                <td class="text-right">R$ 3,38</td>
-                            </tr><tr>
-                                <td class="text-right">-</td>
-                                <td class="">Produto 3 </td>
-                                <td class="text-right">R$ 3,38</td>
-                            </tr><tr>
-                                <td class="text-right">-</td>
-                                <td class="">Produto 3 </td>
-                                <td class="text-right">R$ 3,38</td>
-                            </tr>
                         </tbody> 
                         <tfoot>
                             <tr>
                                 <th></th>
                                 <th>Total</th>
                                 <th class="text-right">
-                                    <p>R$ -21,08<p> 
-                                    <em class="uppercase" style="font-weight: 100;font-size: 12px"> [Prejuízo] </em>
+                                    <p id="valor-total">R$ -21,08<p> 
+                                    <em class="uppercase" id="lucro_ou_prejuizo" style="font-weight: 100;font-size: 12px"> [Prejuízo] </em>
                                 </th>
                             </tr>
                         </tfoot>
@@ -131,5 +91,19 @@
             </section>
         </div>
     </main>
+    <script src="/assets/js/index.js"></script>
+    <script>
+        setTimeout(() => { 
+            window.onbeforeunload = function (e) {
+                e = e || window.event;
+                // For IE and Firefox prior to version 4
+                if (e) {
+                    e.returnValue = 'Sure?';
+                }
+                // For Safari
+                return 'Sure?';
+            }
+        }, 1000)
+    </script>
 </body>
 </html>

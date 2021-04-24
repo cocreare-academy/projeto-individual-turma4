@@ -252,7 +252,7 @@ img{
 
     }
 
-    .menu-hover-control:hover .navbar-menu {
+    .menu-hover-control .navbar-menu.opened {
         right: 0px;
         -webkit-transition: all 0.5s 0s ease;
         -moz-transition: all 0.5s 0s ease;
@@ -388,6 +388,14 @@ img{
     text-indent: 0;
 }
 
+
+form em {
+    color:red;
+}
+
+.hidden {
+    display: none;
+}
 
 /* 
 form input:invalid,select:invalid {
